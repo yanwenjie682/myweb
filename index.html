@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>致嘉馨 💌</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif}
+body{
+  min-height:100vh;
+  background: linear-gradient(-45deg,#ff9bb4,#ffd1dc,#ffb6c1,#f8c8dc);
+  background-size:400% 400%;
+  animation: bgMove 12s ease infinite;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-align:center;
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.box{
+  background:rgba(255,255,255,0.22);
+  backdrop-filter:blur(12px);
+  padding:45px 35px;
+  border-radius:24px;
+  box-shadow:0 8px 32px rgba(255,80,130,0.25);
+  max-width:460px;
+  opacity:0;
+  transform:translateY(20px);
+  animation: showBox 1.5s ease forwards;
+}
+@keyframes showBox{
+  to{opacity:1;transform:translateY(0)}
+}
+h1{
+  font-size:30px;
+  margin-bottom:20px;
+  text-shadow:0 2px 8px rgba(255,70,120,0.35);
+}
+p{
+  font-size:17px;
+  line-height:1.85;
+  margin-bottom:10px;
+}
+.heart{
+  position:fixed;
+  color:#ff4777;
+  font-size:24px;
+  pointer-events:none;
+  animation: floatUp 4s linear forwards;
+}
+@keyframes floatUp{
+  0%{opacity:1;bottom:0;transform:scale(1)}
+  100%{opacity:0;bottom:100vh;transform:scale(0.4)}
+}
+.tip{
+  margin-top:28px;
+  font-size:14px;
+  opacity:0.85;
+}
+.name{
+  font-size:24px;
+  font-weight:bold;
+  color:#ff3366;
+  margin:12px 0;
+}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>💌 写给嘉馨</h1>
+  <p>很庆幸，人海之中，我遇见了你</p>
+  <p>喜欢你温柔的样子，喜欢你所有的小情绪</p>
+  <p>和你在一起的每一天，都值得好好珍藏</p>
+  <p>想陪你看日落，吹晚风，走过一年四季</p>
+  <p>开心的事想第一时间分享给你</p>
+  <p>难过的时候，我也一直陪着你</p>
+  <p class="name">嘉馨，你是我的偏爱和例外</p>
+  <p style="font-size:22px;margin-top:10px;">❤️ 我超级喜欢你 ❤️</p>
+  <div class="tip">点击屏幕，会有爱心飘出来哦</div>
+</div>
+
+<script>
+// 点击生成爱心
+document.addEventListener('click',function(e){
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = '♥';
+  heart.style.left = e.clientX + 'px';
+  heart.style.top = e.clientY + 'px';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),4000);
+})
+// 自动随机飘爱心
+function autoHeart(){
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = '♥';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.top = '100vh';
+  heart.style.fontSize = (Math.random()*18+14)+'px';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),4000);
+}
+setInterval(autoHeart,700);
+</script>
+</body>
+</html>
